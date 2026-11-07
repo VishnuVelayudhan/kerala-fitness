@@ -9,6 +9,10 @@ node_modules/
 !.env.example
 !**/.env.example
 
+# Administrative Portal (Keep private to protect user data and admin credentials)
+admin-site/
+**/admin-site/
+
 # Netlify & hosting state / deployment cache
 .netlify/
 **/.netlify/

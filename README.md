@@ -1,70 +1,63 @@
 # 🌴 Kerala Fitness — Authentic Kerala Diet Planner & Fitness Tracker
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-brightgreen?style=for-the-badge&logo=netlify)](https://kerala-fitness-main-site.netlify.app/login.html)
+[![Try It Out](https://img.shields.io/badge/Try%20It%20Out-Live%20Site-brightgreen?style=for-the-badge&logo=netlify)](https://kerala-fitness-main-site.netlify.app/login.html)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Database](https://img.shields.io/badge/Database-Turso%20%2F%20LibSQL-00E599?style=for-the-badge&logo=sqlite&logoColor=black)](https://turso.tech)
 [![Cloudinary](https://img.shields.io/badge/Media-Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)](https://cloudinary.com)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-> A modern, full-stack fitness and nutrition platform uniquely tailored to the authentic Kerala diet. Calculate BMI, receive scientifically balanced traditional meal plans, track wellness milestones, and manage user progression with a dedicated administrative dashboard.
+> A modern, full-stack fitness and nutrition web application tailored specifically to the authentic Kerala diet. Calculate BMI, receive scientifically balanced traditional meal plans, log personal progress, and interact with an immersive 3D wellness experience.
 
-🔗 **Live Production Site:** [https://kerala-fitness-main-site.netlify.app/login.html](https://kerala-fitness-main-site.netlify.app/login.html)
+---
+
+### 🚀 **Try the Live Application:**
+👉 **[https://kerala-fitness-main-site.netlify.app/login.html](https://kerala-fitness-main-site.netlify.app/login.html)**
 
 ---
 
 ## 📌 Table of Contents
-- [Overview & Problem Statement](#-overview--problem-statement)
+- [Overview & Value Proposition](#-overview--value-proposition)
 - [Key Features](#-key-features)
 - [System Architecture](#-system-architecture)
 - [Tech Stack](#-tech-stack)
-- [Security & Production Hardening](#-security--production-hardening)
+- [Security & Privacy Standards](#-security--privacy-standards)
 - [Project Structure](#-project-structure)
-- [Local Development Setup](#-local-development-setup)
+- [Local Setup & Development](#-local-setup--development)
 - [API Reference](#-api-reference)
-- [Deployment](#-deployment)
-- [Author & Acknowledgments](#-author--acknowledgments)
+- [Author & License](#-author--license)
 
 ---
 
-## 🎯 Overview & Problem Statement
+## 🎯 Overview & Value Proposition
 
-Most mainstream health and fitness applications focus exclusively on Western dietary paradigms (oats, salads, grilled chicken breasts), completely overlooking regional Indian cuisines. 
+Traditional Kerala cuisine—rich in staples such as **Matta (Red Rice)**, **Puttu**, **Appam**, **Kadala Curry**, **Avial**, **Thoran**, and fresh coastal fish—is rarely represented in mainstream, Western-oriented calorie-tracking apps.
 
-In Kerala, staples like **Matta (Red Rice)**, **Puttu**, **Appam**, **Kadala Curry**, **Avial**, **Thoran**, and fresh fish preparations are central to everyday life. Individuals looking to lose weight or build muscle often struggle to translate their cultural diet into calorie- and macro-accurate goals.
-
-**Kerala Fitness** solves this problem by providing:
-1. Calorie-counted Kerala food databases (Breakfast, Lunch, Dinner, Snacks).
-2. Automated macro-balanced meal plan generation tailored to user goals (Weight Loss, Muscle Gain, Maintenance).
-3. Longitudinal progress tracking with BMI categorization.
-4. An interactive administrative portal for wellness monitoring and user management.
+**Kerala Fitness** bridges this gap by offering:
+1. **Accurate Regional Food Profiles**: Calorie-counted database of authentic South Indian and Kerala dishes.
+2. **Personalized Meal Generator**: Intelligent daily diet suggestions tailored to individual goals (Weight Loss, Muscle Building, Maintenance).
+3. **Health Trend Logging**: Real-time BMI feedback and historical progress records.
+4. **Community Feedback**: Rating and review system for users to share wellness journeys.
 
 ---
 
 ## ✨ Key Features
 
 ### 🥗 Authentic Kerala Diet Planner
-- Dynamic meal recommendations featuring traditional vegetarian and non-vegetarian Kerala dishes (e.g., *Puttu with Kadala Curry*, *Appam with Veg Stew*, *Fish Curry with Matta Rice*, *Avial*, *Thoran*).
-- Customizable recommendations adapted to specific caloric targets and fitness ambitions.
+- Curated food options across Breakfast, Lunch, Dinner, and Healthy Snacks.
+- Balances complex carbohydrates, healthy fats (coconut/mustard oil), and lean protein (fish, eggs, pulses).
 
-### 📊 Real-time BMI & Wellness Tracking
-- Instant Body Mass Index (BMI) computation based on height, weight, and target milestones.
-- Historical log recording date-stamped weight and BMI trends over time.
+### 📊 Real-Time BMI & Health Metrics
+- Instant Body Mass Index (BMI) computation with category indicators (Underweight, Normal, Overweight, Obese).
+- Milestone history logging to visually monitor fitness transformations over time.
 
-### 🔐 Secure Authentication & Session Management
-- Multi-mode sign-up and login workflow.
-- Passwords hashed using industry-standard **bcrypt** (10 salt rounds).
-- Granular role-based redirection (Standard User ➡️ Dashboard | Administrator ➡️ Admin Panel).
+### 🔐 Secure User Authentication
+- Fast, streamlined sign-up and login workflow.
+- Passwords securely hashed with **bcrypt** (10 salt rounds) before database storage.
 
-### 🛠️ Dedicated Administrator Dashboard (`admin-site`)
-- User management interface allowing administrators to view, audit, and update accounts.
-- Deep-dive member progression history logs.
-- Dynamic modal dialogues for administrative actions.
-
-### 🌟 Interactive & Immersive UI
-- 3D interactive ambient globe background powered by **Three.js** and **Vanta.js**.
-- Glassmorphic, mobile-responsive layout designed with modern CSS3.
-- Integrated community feedback and review submission system.
+### 🌟 3D Glassmorphic Interface
+- Interactive 3D ambient globe background built with **Three.js** and **Vanta.js**.
+- Fully responsive, mobile-first design styled with modern CSS3.
 
 ---
 
@@ -74,28 +67,28 @@ In Kerala, staples like **Matta (Red Rice)**, **Puttu**, **Appam**, **Kadala Cur
 ┌─────────────────────────────────────────────────────────────┐
 │                       Client Layer                          │
 │                                                             │
-│   [ Main User App ]                [ Admin Dashboard ]      │
-│  • HTML5 / CSS3 / Vanilla JS      • User / Audit Controls   │
-│  • Three.js / Vanta.js 3D         • History Inspection      │
-│  • Session Storage                • Role Verification       │
-└──────────────┬──────────────────────────────┬───────────────┘
-               │                              │
-               ▼                              ▼
+│   [ Kerala Fitness Web Application ]                        │
+│   • HTML5 / CSS3 / Vanilla ES6+ JavaScript                 │
+│   • Three.js / Vanta.js 3D Interactive Canvas               │
+│   • Responsive Glassmorphic Layout                          │
+└──────────────────────────────┬──────────────────────────────┘
+                               │
+                               ▼
 ┌─────────────────────────────────────────────────────────────┐
 │             Serverless API Layer (Netlify)                  │
 │                                                             │
-│                [ Express.js App Handler ]                   │
-│   • Auth Router (Bcrypt Salt / Hash)                        │
-│   • User Profile & Progress Router                          │
-│   • Cloudinary Media Upload Stream Buffer                   │
-│   • Admin Action Endpoints                                  │
+│                [ Express.js REST API ]                      │
+│   • User Authentication & Bcrypt Hashing                    │
+│   • Personal Fitness History Logging                        │
+│   • Community Reviews API with XSS Sanitization             │
+│   • In-Memory Stream Buffer Media Uploads                   │
 └──────────────────────────────┬──────────────────────────────┘
                                │
                ┌───────────────┴───────────────┐
                ▼                               ▼
 ┌──────────────────────────────┐ ┌─────────────────────────────┐
-│   Turso Cloud Database       │ │   Cloudinary Media Store    │
-│   (Distributed LibSQL)       │ │   (Profile Assets & Media)  │
+│   Turso Cloud Database       │ │   Cloudinary Media Storage  │
+│   (Distributed LibSQL)       │ │   (User Profile & Media)    │
 │  • users                     │ └─────────────────────────────┘
 │  • history                   │
 │  • reviews                   │
@@ -108,26 +101,26 @@ In Kerala, staples like **Matta (Red Rice)**, **Puttu**, **Appam**, **Kadala Cur
 
 | Domain | Technology | Description |
 | :--- | :--- | :--- |
-| **Frontend** | HTML5, CSS3, Modern ES6+ JavaScript | Semantic, zero-dependency lightweight client |
-| **3D Graphics** | Three.js & Vanta.js | Immersive interactive 3D visual canvas |
-| **Backend** | Node.js, Express.js | RESTful API architecture |
-| **Serverless** | `serverless-http`, Netlify Functions | High-availability cloud runtime |
-| **Database** | Turso (LibSQL / SQLite cloud) | Edge-distributed serverless database |
+| **Frontend** | HTML5, CSS3, Modern ES6+ JavaScript | Semantic, lightweight, and responsive client |
+| **3D Graphics** | Three.js & Vanta.js | Immersive 3D background animation |
+| **Backend** | Node.js, Express.js | RESTful backend architecture |
+| **Serverless** | `serverless-http`, Netlify Functions | Distributed cloud serverless execution |
+| **Database** | Turso (Distributed LibSQL / SQLite) | Edge-replicated cloud database |
 | **Security** | Bcrypt.js, Parameterized SQL | Cryptographic hashing & SQL injection protection |
 | **Media** | Cloudinary & Multer | In-memory buffer uploads directly to CDN |
-| **Hosting** | Netlify | Continuous deployment with CDN caching |
+| **Deployment** | Netlify | Global CDN hosting with serverless functions |
 
 ---
 
-## 🔒 Security & Production Hardening
+## 🔒 Security & Privacy Standards
 
-This repository strictly adheres to production cybersecurity standards:
+This project follows robust production security best practices:
 
-- **Decoupled Secrets**: All sensitive credentials (database URLs, authentication tokens, API keys) are strictly loaded via runtime environment variables (`process.env`).
-- **No Insecure Storage**: File uploads utilize Multer in-memory buffers (`multer.memoryStorage()`) streaming directly to Cloudinary without persisting unencrypted temporary files to disk.
-- **SQL Injection Defense**: Every database interaction uses parameterized prepared statements (`args: [params]`), preventing SQL injection attacks.
-- **Cryptographic Protection**: Passwords are never stored in plaintext; salted and hashed with `bcryptjs`.
-- **Zero-Leak Version Control**: Pre-configured `.gitignore` prevents exposure of `.env` files, `.netlify` state caches, local `.db` snapshots, and dependencies.
+- **Strict Environment Decoupling**: Database URLs, tokens, and storage keys are never hardcoded. All credentials are read from environment variables.
+- **Zero-Storage Media Ingestion**: Image uploads are processed via in-memory stream buffers (`multer.memoryStorage()`) directly to Cloudinary, ensuring no temporary unencrypted files remain on disk.
+- **SQL Injection Defense**: All database queries use parameterized prepared statements (`args: [params]`), preventing SQL injection.
+- **XSS Protection**: User-submitted content (reviews and usernames) is escaped before rendering to prevent Cross-Site Scripting.
+- **Data Protection**: Local database binaries (`*.db`), deployment caches (`.netlify/`), and secrets (`.env*`) are permanently excluded from version control.
 
 ---
 
@@ -135,39 +128,31 @@ This repository strictly adheres to production cybersecurity standards:
 
 ```
 kerala-fitness/
-├── admin-site/                   # Dedicated administrative dashboard
-│   ├── admin.html                # Admin user management & audit interface
-│   ├── admin.js                  # User listing, history querying, edit modals
-│   ├── background-init.js        # Vanta.js 3D background initialization
-│   ├── netlify.toml              # Routing & redirect rules for admin panel
-│   └── style.css                 # Dedicated dashboard styles
-│
-├── main-site/                    # Primary user-facing web application
+├── main-site/                    # User application & serverless backend
 │   ├── netlify/
 │   │   └── functions/
-│   │       └── api.js            # Serverless Express API & Turso handlers
-│   ├── .env.example              # Environment variable template
+│   │       └── api.js            # Serverless Express API & Turso integration
+│   ├── .env.example              # Environment variables template
 │   ├── background-init.js        # 3D canvas initializer
-│   ├── database.js               # LibSQL/Turso database client & auto-migration
+│   ├── database.js               # LibSQL client & database schema initializer
 │   ├── index.html                # Diet planner, BMI calculator & tracker
 │   ├── login.html                # Authentication portal (Sign up / Login)
-│   ├── login.js                  # Client auth logic & validation
-│   ├── netlify.toml              # Netlify build configuration & API redirects
+│   ├── login.js                  # Frontend auth handling & validation
+│   ├── netlify.toml              # Build settings & API redirect rules
 │   ├── package.json              # Backend dependencies & metadata
 │   ├── script.js                 # Diet calculation & Kerala food database logic
 │   ├── server.js                 # Local Express server runner
 │   └── style.css                 # Responsive UI layout & animations
 │
-├── .gitignore                    # Comprehensive repository protection rules
-├── package.json                  # Root workspace script runner
-└── README.md                     # Project documentation
+├── .gitignore                    # Version control exclusion rules
+├── LICENSE                       # MIT License
+├── package.json                  # Root project scripts
+└── README.md                     # Documentation
 ```
 
 ---
 
-## 🚀 Local Development Setup
-
-Follow these steps to run the application locally:
+## 🚀 Local Setup & Development
 
 ### 1. Clone the Repository
 ```bash
@@ -176,12 +161,13 @@ cd kerala-fitness
 ```
 
 ### 2. Configure Environment Variables
-Navigate to `main-site/` and create a `.env` file based on `.env.example`:
+Navigate to `main-site/` and create your local `.env` using the template:
 ```bash
 cd main-site
 cp .env.example .env
 ```
-Fill in your credentials:
+
+Add your credentials to `.env`:
 ```env
 LIBSQL_URL=libsql://your-database.turso.io
 LIBSQL_AUTH_TOKEN=your_turso_auth_token
@@ -200,36 +186,23 @@ npm install
 ```bash
 npm start
 ```
-The server will start at:
-- **Application Portal:** `http://localhost:8888/login.html`
-- **Main Diet Planner:** `http://localhost:8888/index.html`
-- **API Health:** `http://localhost:8888/api/reviews`
+The application will be accessible at:
+- **Login / Sign Up**: `http://localhost:8888/login.html`
+- **Diet Planner**: `http://localhost:8888/index.html`
 
 ---
 
 ## 📡 API Reference
 
-| Endpoint | Method | Access | Description |
-| :--- | :---: | :---: | :--- |
-| `/api/signup` | `POST` | Public | Registers a new user with bcrypt password hashing |
-| `/api/login` | `POST` | Public | Validates credentials and returns session user payload |
-| `/api/history` | `POST` | User | Saves user BMI, weight, and diet goal record |
-| `/api/history?userId={id}` | `GET` | User | Retrieves user historical progression |
-| `/api/reviews` | `POST` | User | Submits a public user testimonial/review |
-| `/api/reviews` | `GET` | Public | Fetches recent community feedback |
-| `/api/upload` | `POST` | User | Uploads an image directly to Cloudinary via buffer |
-| `/api/admin/users` | `GET` | Admin | Fetches list of registered users |
-| `/api/admin/users/:id` | `PUT` | Admin | Updates user credentials or details |
-| `/api/admin/history/:userId` | `GET` | Admin | Retrieves progression log for specific member |
-
----
-
-## 🌐 Deployment
-
-The application is deployed as a serverless platform on **Netlify**:
-- Frontend static assets are served from Netlify's high-performance edge CDN.
-- Backend API routes are routed via `netlify.toml` rewrites to serverless Lambda functions (`/.netlify/functions/api`).
-- Database persistence is managed globally via **Turso** edge instances.
+| Endpoint | Method | Description |
+| :--- | :---: | :--- |
+| `/api/signup` | `POST` | Registers a new user with bcrypt password hashing |
+| `/api/login` | `POST` | Validates credentials and returns session user payload |
+| `/api/history` | `POST` | Saves user BMI, weight, and fitness goal |
+| `/api/history?userId={id}` | `GET` | Retrieves recorded progression history for a member |
+| `/api/reviews` | `POST` | Submits a user testimonial |
+| `/api/reviews` | `GET` | Fetches community feedback |
+| `/api/upload` | `POST` | Uploads an image directly to Cloudinary via buffer |
 
 ---
 
@@ -237,7 +210,7 @@ The application is deployed as a serverless platform on **Netlify**:
 
 **Vishnu Velayudhan**
 - GitHub: [@VishnuVelayudhan](https://github.com/VishnuVelayudhan)
-- Live Site: [Kerala Fitness Platform](https://kerala-fitness-main-site.netlify.app/login.html)
+- Live Application: [Kerala Fitness](https://kerala-fitness-main-site.netlify.app/login.html)
 
 ---
 

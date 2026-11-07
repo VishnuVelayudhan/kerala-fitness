@@ -89,22 +89,28 @@ app.post('/login', (req, res) => {
     });
 });
 
-// --- Admin Routes ---
+// --- Admin Authorization Middleware (Protects user privacy) ---
+const requireAdminAuth = (req, res, next) => {
+    const adminKey = req.headers['x-admin-key'] || req.query.adminKey;
+    const expectedKey = process.env.ADMIN_SECRET_KEY;
 
-// Middleware to check if user is admin (simplified for this context, relying on client-side mostly/shared auth)
-// In a real app, we'd verify a token. Here we'll just expose the endpoints.
+    // Reject unauthorized access if admin key is not matched
+    if (!expectedKey || adminKey !== expectedKey) {
+        return res.status(403).json({ error: "Access denied. Admin authorization required." });
+    }
+    next();
+};
 
-// Get all users
-app.get('/admin/users', (req, res) => {
-    // In a real app, check auth here
+// Get all users (Protected)
+app.get('/admin/users', requireAdminAuth, (req, res) => {
     db.all('SELECT id, username, email FROM users', [], (err, rows) => {
         if (err) return res.status(500).send(err.message);
         res.json(rows);
     });
 });
 
-// Update user (username/password)
-app.put('/admin/users/:id', async (req, res) => {
+// Update user (Protected)
+app.put('/admin/users/:id', requireAdminAuth, async (req, res) => {
     const { id } = req.params;
     const { username, password } = req.body;
 
@@ -138,8 +144,8 @@ app.put('/admin/users/:id', async (req, res) => {
     }
 });
 
-// Get user history (Admin view)
-app.get('/admin/history/:userId', (req, res) => {
+// Get user history (Protected)
+app.get('/admin/history/:userId', requireAdminAuth, (req, res) => {
     const { userId } = req.params;
     db.all(`SELECT * FROM history WHERE user_id = ? ORDER BY id DESC`, [userId], (err, rows) => {
         if (err) return res.status(500).send(err.message);
@@ -169,9 +175,14 @@ app.get('/history', (req, res) => {
 // Reviews Routes
 app.post('/reviews', (req, res) => {
     const { userId, username, rating, comment } = req.body;
+    if (!username || !comment || !rating) {
+        return res.status(400).send("Rating, comment, and username are required.");
+    }
+    const safeRating = Math.min(5, Math.max(1, parseInt(rating) || 5));
+    const safeComment = String(comment).slice(0, 500); // Prevent payload abuse
     const date = new Date().toISOString();
     const query = `INSERT INTO reviews (user_id, username, rating, comment, created_at) VALUES (?, ?, ?, ?, ?)`;
-    db.run(query, [userId, username, rating, comment, date], function (err) {
+    db.run(query, [userId, username, safeRating, safeComment, date], function (err) {
         if (err) return res.status(500).send(err.message);
         res.json({ id: this.lastID, message: "Review added" });
     });

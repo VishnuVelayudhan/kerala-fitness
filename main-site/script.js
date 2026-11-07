@@ -244,6 +244,15 @@ async function fetchHistory() {
     }
 }
 
+// Helper to escape HTML and prevent Stored XSS
+function escapeHTML(str) {
+    if (!str) return '';
+    return String(str).replace(/[&<>'"]/g, function(tag) {
+        const chars = { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' };
+        return chars[tag] || tag;
+    });
+}
+
 // Reviews API
 async function fetchReviews() {
     const list = document.getElementById('reviews-list');
@@ -254,10 +263,10 @@ async function fetchReviews() {
         list.innerHTML = data.map(r => `
             <div class="review-item">
                 <div class="review-header">
-                    <span class="review-user">${r.username}</span>
-                    <span class="review-rating">${'★'.repeat(r.rating)}</span>
+                    <span class="review-user">${escapeHTML(r.username)}</span>
+                    <span class="review-rating">${'★'.repeat(Math.min(5, Math.max(1, r.rating || 5)))}</span>
                 </div>
-                <div class="review-comment">${r.comment}</div>
+                <div class="review-comment">${escapeHTML(r.comment)}</div>
                 <div class="review-date">${new Date(r.created_at).toLocaleDateString()}</div>
             </div>
         `).join('');
