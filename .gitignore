@@ -1,0 +1,42 @@
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# Environment variables & secrets (CRITICAL: Never commit credentials, tokens, or private keys)
+.env
+.env.*
+*.env
+!.env.example
+!**/.env.example
+
+# Netlify & hosting state / deployment cache
+.netlify/
+**/.netlify/
+.vercel/
+**/.vercel/
+
+# Local database files & binaries
+*.db
+*.sqlite
+*.sqlite3
+fitness.db
+**/fitness.db
+
+# Logs & debugging
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

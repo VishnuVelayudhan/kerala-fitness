@@ -1,0 +1,11 @@
+# Local Netlify state & build files
+.netlify/
+
+# Environment files
+.env
+.env.*
+*.env
+!.env.example
+
+# Logs
+*.log

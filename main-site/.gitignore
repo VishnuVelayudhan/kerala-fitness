@@ -1,0 +1,20 @@
+# Local Netlify state & build files
+.netlify/
+
+# Environment files
+.env
+.env.*
+*.env
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+fitness.db
+
+# Logs
+*.log

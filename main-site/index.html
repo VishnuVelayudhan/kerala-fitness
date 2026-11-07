@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Fitness Journey</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="bg-canvas"></div>
+    <div class="app-container">
+        <!-- Navigation Tabs -->
+        <nav class="main-nav hidden" id="main-nav">
+            <button class="nav-btn active" data-target="home">Home</button>
+            <button class="nav-btn" data-target="history">History</button>
+            <button class="nav-btn" data-target="reviews">Reviews</button>
+            <button class="nav-btn logout" id="logout-btn">Logout</button>
+        </nav>
+
+        <!-- Landing Section (Home Tab) -->
+        <div id="home-view">
+            <header id="landing-section" class="hero-section center-content home-hero">
+                <div class="hero-content">
+                    <h1>KERALA<br>FITNESS</h1>
+                    <p class="tagline">Transform your health with a personalized diet plan based on authentic Kerala
+                        cuisine.</p>
+
+                    <button id="start-btn" class="btn-primary start-btn">Get My Plan</button>
+                </div>
+
+                <div class="creators-box hidden-mobile">
+                    <p>Created by:</p>
+                    <ul class="creators-list">
+                        <li>Vishnu Velayudhan</li>
+                        <li>Abhishek Ashok</li>
+                        <li>Ardra Krishna P R</li>
+                        <li>Mariya Benny</li>
+                    </ul>
+                </div>
+            </header>
+
+            <!-- Wizard Section -->
+            <section id="wizard-section" class="card form-card hidden">
+                <form id="fitness-form">
+
+                    <!-- Step 1: Personal Details -->
+                    <div id="step-1" class="wizard-step">
+                        <h2>Step 1: Tell Us About You</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" required min="10" max="100" placeholder="Years">
+                            </div>
+                            <div class="input-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender" required>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="weight">Weight (kg)</label>
+                                <input type="number" id="weight" required min="20" max="300" placeholder="Kg">
+                            </div>
+                            <div class="input-group">
+                                <label for="height">Height (cm)</label>
+                                <input type="number" id="height" required min="50" max="250" placeholder="Cm">
+                            </div>
+                        </div>
+                        <div class="btn-group right">
+                            <button type="button" id="step-1-confirm" class="btn-primary">Confirm</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Goal Details -->
+                    <div id="step-2" class="wizard-step hidden">
+                        <h2>Step 2: Define Your Goal</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="goal">Your Goal</label>
+                                <select id="goal" required>
+                                    <option value="fat-loss">Fat Loss</option>
+                                    <option value="muscle-gain">Muscle Gain</option>
+                                    <option value="weight-gain">Weight Gain</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="speed">Goal Speed</label>
+                                <select id="speed" required>
+                                    <option value="moderate">Moderate (Recommended)</option>
+                                    <option value="slow">Slow & Steady</option>
+                                    <option value="fast">Fast (Aggressive)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="btn-group split">
+                            <button type="button" id="step-2-back" class="btn-secondary">Previous</button>
+                            <button type="button" id="step-2-confirm" class="btn-primary">Confirmation</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Preferences -->
+                    <div id="step-3" class="wizard-step hidden">
+                        <h2>Step 3: Lifestyle & Diet</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="current-status">Current Status</label>
+                                <select id="current-status" required>
+                                    <option value="skinny">Skinny</option>
+                                    <option value="average">Average</option>
+                                    <option value="overweight">Overweight</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="activity">Activity Level</label>
+                                <select id="activity" required>
+                                    <option value="low">Sedentary (Little/No exercise)</option>
+                                    <option value="moderate">Moderate (Exercise 3-5 days)</option>
+                                    <option value="high">High (Active job/Daily exercise)</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="food-pref">Food Preference</label>
+                                <select id="food-pref" required>
+                                    <option value="non-veg">Non-Vegetarian</option>
+                                    <option value="veg">Vegetarian</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="lunch-pref">Lunch Preference</label>
+                                <select id="lunch-pref" required>
+                                    <option value="normal">Normal (Rice & Curry)</option>
+                                    <option value="light">Light (Wheat/Heavy Salad)</option>
+                                    <option value="heavy">Heavy (Full Sadhya style)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="btn-group split">
+                            <button type="button" id="step-3-back" class="btn-secondary">Previous</button>
+                            <button type="submit" class="btn-primary">Build My Plan</button>
+                        </div>
+                    </div>
+
+                </form>
+            </section>
+
+            <!-- Results Section (Hidden initially) -->
+            <main id="results-section" class="hidden">
+
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="card result-card bmi-card">
+                        <h3>Your BMI</h3>
+                        <div class="bmi-value" id="bmi-display">--</div>
+                        <div class="bmi-category" id="bmi-category">--</div>
+                    </div>
+                    <div class="card result-card tips-card">
+                        <h3>Daily Recommendations</h3>
+                        <ul id="quick-tips-list">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Weekly Plan -->
+                <section class="diet-plan-section">
+                    <h2>Your Personalized 7-Day Kerala Diet Plan</h2>
+                    <div class="week-grid" id="diet-plan-container">
+                        <!-- Days will be injected here -->
+                    </div>
+                </section>
+
+                <div class="action-area">
+                    <button id="reset-btn" class="btn-secondary">Generate New Plan</button>
+                </div>
+            </main>
+        </div>
+
+        <!-- History View -->
+        <div id="history-view" class="view-section hidden">
+            <h2>Your History</h2>
+            <div class="table-container">
+                <table id="history-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Weight</th>
+                            <th>BMI</th>
+                            <th>Category</th>
+                            <th>Goal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-list">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+                <p id="no-history-msg" class="hidden">No history found. Start a plan!</p>
+            </div>
+        </div>
+
+        <!-- Reviews View -->
+        <div id="reviews-view" class="view-section hidden">
+            <h2>Community Reviews</h2>
+
+            <div class="reviews-container">
+                <div class="review-form card">
+                    <h3>Write a Review</h3>
+                    <form id="review-form">
+                        <div class="input-group">
+                            <label>Rating</label>
+                            <div class="star-rating">
+                                <input type="radio" name="rating" value="5" id="s5"><label for="s5">★</label>
+                                <input type="radio" name="rating" value="4" id="s4"><label for="s4">★</label>
+                                <input type="radio" name="rating" value="3" id="s3"><label for="s3">★</label>
+                                <input type="radio" name="rating" value="2" id="s2"><label for="s2">★</label>
+                                <input type="radio" name="rating" value="1" id="s1"><label for="s1">★</label>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="review-comment">Comment</label>
+                            <textarea id="review-comment" rows="3" required
+                                placeholder="Share your experience..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Submit Review</button>
+                    </form>
+                </div>
+
+                <div id="reviews-list" class="reviews-list">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+        <script src="background-init.js"></script>
+        <script src="script.js"></script>
+    </div>
+</body>
+
+</html>

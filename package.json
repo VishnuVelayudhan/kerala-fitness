@@ -1,0 +1,11 @@
+{
+  "name": "kerala-fitness-platform",
+  "version": "1.0.0",
+  "description": "Full-stack authentic Kerala diet planner, BMI analyzer, and fitness tracking platform.",
+  "author": "Vishnu Velayudhan",
+  "license": "MIT",
+  "scripts": {
+    "start": "cd main-site && npm start",
+    "install:main": "cd main-site && npm install"
+  }
+}

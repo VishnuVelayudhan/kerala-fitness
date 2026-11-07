@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/"
+  to = "https://kerala-fitness-main-site.netlify.app/login.html"
+  status = 301
+  force = true
